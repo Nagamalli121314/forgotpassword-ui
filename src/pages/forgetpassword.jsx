@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { MdVisibility } from 'react-icons/md'
+import { AiFillEyeInvisible} from 'react-icons/ai'
 
 
 
 const ForgetPassword = () => {
     const [isEmail, setIsEmail] = useState(false)
+    const [visible ,setVisible] =useState(false)
+
 
 
     const handleforgotpassword = (event) => {
@@ -56,11 +59,20 @@ const ForgetPassword = () => {
                                                 placeholder='password'
                                                 id="password"
                                                 name="password"
-                                                type="password"
+                                                type={visible?"text":"password"}
                                                 required
                                                 className="bg-tranprent outline-none"
                                             />
-                                            <MdVisibility> </MdVisibility>
+                                            
+                                            {
+                        visible?  <MdVisibility className='text-black'
+                        onClick={()=> {setVisible(!visible)}}
+                      >
+                        {" "}
+                      </MdVisibility> : <AiFillEyeInvisible  onClick={() => {
+                          setVisible(!visible);
+                        }}/>
+                     }
                                         </div>
                                     </div>
                                     <div>
@@ -70,11 +82,19 @@ const ForgetPassword = () => {
                                                 placeholder='confrom password'
                                                 id="confirmPassword"
                                                 name="confirmPassword"
-                                                type="password"
+                                                type={visible?"text":"password"}
                                                 required
                                                 className="bg-tranprent outline-none"
                                             />
-                                            <MdVisibility></MdVisibility>
+                                            {
+                        visible?  <MdVisibility className='text-black'
+                        onClick={()=> {setVisible(!visible)}}
+                      >
+                        {" "}
+                      </MdVisibility> : <AiFillEyeInvisible  onClick={() => {
+                          setVisible(!visible);
+                        }}/>
+                     }
                                         </div>
                                     </div>
                                     <div>
@@ -103,7 +123,7 @@ const ForgetPassword = () => {
                             </div>
 
                                     <div >
-                                        <label htmlFor="email" className="  block text-sm font-bold  leading-6 text-gray-900 ">
+                                        <label htmlFor="email" className="  block text-sm font-bold   leading-6 text-gray-900 ">
                                             Email Address
                                         </label>
                                         <div className="mt-2 ">
@@ -114,7 +134,7 @@ const ForgetPassword = () => {
                                                 autoComplete="email"
 
                                                 required
-                                                className="block w-full rounded-full border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                                className="block w-full rounded-full border-0 py-2 px-2 text-center text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                             />
                                         </div>
                                     </div>
